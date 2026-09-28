@@ -3,7 +3,7 @@ import { Section } from '@/shared/components/common/section'
 import { SECTION_IDS } from '@/shared/config/sections'
 import { Skeleton } from '@/shared/components/ui/skeleton'
 import { useExperiences } from '../hooks/use-experiences'
-import { ExperienceCard } from './experience-card'
+import { ExperienceTimeline } from './experience-timeline'
 
 export function ExperienceSection() {
   const state = useExperiences()
@@ -11,15 +11,7 @@ export function ExperienceSection() {
   return (
     <Section id={SECTION_IDS.experience} title="Experiencia">
       <AsyncContent state={state} fallback={<Skeleton className="h-48 w-full" />}>
-        {(experiences) => (
-          <ol className="flex flex-col gap-6">
-            {experiences.map((experience) => (
-              <li key={experience.id}>
-                <ExperienceCard experience={experience} />
-              </li>
-            ))}
-          </ol>
-        )}
+        {(experiences) => <ExperienceTimeline experiences={experiences} />}
       </AsyncContent>
     </Section>
   )

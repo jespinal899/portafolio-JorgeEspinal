@@ -24,15 +24,15 @@ describe('ExperienceCard', () => {
     expect(heading).toBeInTheDocument()
   })
 
-  it('shows "Actualidad" for a current position', () => {
+  it('shows the company name', () => {
     // Arrange
-    render(<ExperienceCard experience={buildExperience({ endDate: undefined })} />)
+    render(<ExperienceCard experience={buildExperience()} />)
 
     // Act
-    const period = screen.getByText(/Actualidad/)
+    const company = screen.getByText('Acme')
 
     // Assert
-    expect(period).toBeInTheDocument()
+    expect(company).toBeInTheDocument()
   })
 
   it('lists every technology', () => {

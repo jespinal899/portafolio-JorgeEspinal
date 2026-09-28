@@ -1,6 +1,9 @@
 import type { Experience } from '@/core/entities'
 
-/** Fechas en formato ISO 8601 (`YYYY-MM-DD`). Sin `endDate` = puesto actual. */
+/**
+ * Fechas en formato ISO 8601 (`YYYY-MM-DD`). Sin `endDate` = puesto actual.
+ * Cuando solo se conoce el mes, se usa el día 01.
+ */
 export const experienceData: readonly Experience[] = [
   {
     id: 'finos-textiles-sysadmin',
@@ -21,5 +24,17 @@ export const experienceData: readonly Experience[] = [
       'Node.js',
       'Flutter',
     ],
+  },
+  {
+    id: 'grupo-elcatex-auxiliar-contable',
+    company: 'Grupo Elcatex',
+    role: 'Auxiliar Contable',
+    startDate: '2022-11-01',
+    endDate: '2024-04-01',
+    description:
+      'Registro, análisis y validación de transacciones y facturas en SAP. ' +
+      'Apoyo en cuentas por pagar y por cobrar, y en auditorías internas mediante la preparación ' +
+      'y custodia de documentación financiera, asegurando el cumplimiento de la normativa contable y tributaria.',
+    technologies: ['SAP', 'Cuentas por pagar', 'Cuentas por cobrar', 'Auditoría interna'],
   },
 ]

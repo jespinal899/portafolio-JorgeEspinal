@@ -4,9 +4,10 @@ export const profileData: Profile = {
   fullName: 'Jorge Espinal',
   headline: 'Administrador de Sistemas · Estudiante de Ingeniería en Informática',
   summary:
-    'Desde hace más de 5 años me apasiona resolver problemas mediante la tecnología. ' +
-    'Actualmente me desempeño como administrador de sistemas en Finos Textiles de Centroamérica, ' +
-    'una empresa de manufactura.',
+    'Me apasiona resolver problemas y crear soluciones mediante la tecnología. Actualmente me desempeño ' +
+    'como Administrador de Sistemas en Finos Textiles de Centroamérica, donde trabajo con ' +
+    'infraestructura, soporte TI, servidores, redes, automatización y desarrollo de soluciones ' +
+    'para optimizar procesos.',
   location: 'Choloma, Cortés, Honduras',
   socialLinks: [
     { platform: 'github', label: 'GitHub', url: 'https://github.com/jespinal899' },
