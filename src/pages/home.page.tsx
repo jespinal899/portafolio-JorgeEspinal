@@ -1,15 +1,14 @@
-import { HeroSection, useProfile } from '@/features/hero'
+import { ExperienceSection } from '@/features/experience'
+import { HeroSection } from '@/features/hero'
+import { SkillsSection } from '@/features/skills'
 
 export function HomePage() {
-  const profileState = useProfile()
-
-  if (profileState.status === 'loading') return null
-  if (profileState.status === 'error') return <p role="alert">No se pudo cargar el perfil.</p>
-
   return (
     <>
-      <HeroSection profile={profileState.data} />
-      {/* TODO: <AboutSection />, <ExperienceSection />, <ProjectsSection />, <SkillsSection />, <ContactSection /> */}
+      <HeroSection />
+      <ExperienceSection />
+      <SkillsSection />
+      {/* TODO: <ProjectsSection />, <ContactSection /> */}
     </>
   )
 }

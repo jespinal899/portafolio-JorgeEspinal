@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-type AsyncState<T> =
+export type AsyncState<T> =
   | { status: 'loading' }
   | { status: 'success'; data: T }
   | { status: 'error'; error: Error }

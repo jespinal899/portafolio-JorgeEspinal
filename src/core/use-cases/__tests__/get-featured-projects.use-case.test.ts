@@ -1,6 +1,6 @@
 import type { Project } from '@/core/entities'
-import type { PortfolioRepository } from '@/core/repositories/portfolio.repository'
 import { GetFeaturedProjectsUseCase } from '../get-featured-projects.use-case'
+import { buildRepositoryMock } from './portfolio-repository.mock'
 
 const buildProject = (overrides: Partial<Project> = {}): Project => ({
   id: 'project-1',
@@ -11,12 +11,8 @@ const buildProject = (overrides: Partial<Project> = {}): Project => ({
   ...overrides,
 })
 
-const buildRepository = (projects: readonly Project[]): PortfolioRepository => ({
-  getProfile: vi.fn(),
-  getExperiences: vi.fn(),
-  getSkills: vi.fn(),
-  getProjects: vi.fn().mockResolvedValue(projects),
-})
+const buildRepository = (projects: readonly Project[]) =>
+  buildRepositoryMock({ getProjects: vi.fn().mockResolvedValue(projects) })
 
 describe('GetFeaturedProjectsUseCase', () => {
   it('returns only featured projects', async () => {
