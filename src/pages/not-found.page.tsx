@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Section } from '@/shared/components/common/section'
 import { Button } from '@/shared/components/ui/button'
-import { ROUTES } from '@/app/router/routes'
+import { ROUTES } from '@/shared/config/routes'
 
 export function NotFoundPage() {
   return (
