@@ -1,4 +1,4 @@
 export const siteConfig = {
-  title: 'Portafolio',
+  title: 'Jorge Espinal',
   description: 'Portafolio personal',
 } as const

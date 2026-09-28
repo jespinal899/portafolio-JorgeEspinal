@@ -1,5 +1,6 @@
 import type { Profile } from '@/core/entities'
 import { Section } from '@/shared/components/common/section'
+import { SECTION_IDS } from '@/shared/config/sections'
 import { Button } from '@/shared/components/ui/button'
 
 interface HeroContentProps {
@@ -8,7 +9,7 @@ interface HeroContentProps {
 
 export function HeroContent({ profile }: HeroContentProps) {
   return (
-    <Section id="hero" className="flex flex-col gap-4 py-24">
+    <Section id={SECTION_IDS.hero} className="flex flex-col gap-4 py-24">
       <p className="text-muted-foreground">{profile.location}</p>
       <h1 className="font-heading text-5xl font-bold tracking-tight">{profile.fullName}</h1>
       <p className="text-xl text-muted-foreground">{profile.headline}</p>
