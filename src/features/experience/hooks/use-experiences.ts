@@ -1,6 +1,7 @@
+import type { Locale } from '@/core/entities'
 import { container } from '@/infrastructure/di/container'
-import { useAsync } from '@/shared/hooks/use-async'
+import { useLocalizedAsync } from '@/shared/i18n/use-localized-async'
 
-const fetchExperiences = () => container.getExperiences.execute()
+const fetchExperiences = (locale: Locale) => container.getExperiences.execute(locale)
 
-export const useExperiences = () => useAsync(fetchExperiences)
+export const useExperiences = () => useLocalizedAsync(fetchExperiences)

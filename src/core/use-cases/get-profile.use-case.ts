@@ -1,4 +1,4 @@
-import type { Profile } from '@/core/entities'
+import type { Locale, Profile } from '@/core/entities'
 import type { PortfolioRepository } from '@/core/repositories/portfolio.repository'
 
 export class GetProfileUseCase {
@@ -8,7 +8,7 @@ export class GetProfileUseCase {
     this.repository = repository
   }
 
-  execute(): Promise<Profile> {
-    return this.repository.getProfile()
+  execute(locale: Locale): Promise<Profile> {
+    return this.repository.getProfile(locale)
   }
 }

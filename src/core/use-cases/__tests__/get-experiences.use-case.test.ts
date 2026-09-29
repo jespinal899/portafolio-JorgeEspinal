@@ -24,7 +24,7 @@ describe('GetExperiencesUseCase', () => {
     const useCase = new GetExperiencesUseCase(repository)
 
     // Act
-    const result = await useCase.execute()
+    const result = await useCase.execute('es')
 
     // Assert
     expect(result.map((experience) => experience.id)).toEqual(['newest', 'middle', 'oldest'])
@@ -41,7 +41,7 @@ describe('GetExperiencesUseCase', () => {
     )
 
     // Act
-    await useCase.execute()
+    await useCase.execute('es')
 
     // Assert
     expect(source.map((experience) => experience.id)).toEqual(['a', 'b'])

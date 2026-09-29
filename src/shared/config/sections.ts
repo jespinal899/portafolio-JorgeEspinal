@@ -5,5 +5,6 @@
 export const SECTION_IDS = {
   hero: 'inicio',
   experience: 'experiencia',
+  education: 'educacion',
   skills: 'habilidades',
 } as const

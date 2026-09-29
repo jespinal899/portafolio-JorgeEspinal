@@ -6,6 +6,8 @@ export const buildRepositoryMock = (
 ): PortfolioRepository => ({
   getProfile: vi.fn(),
   getExperiences: vi.fn().mockResolvedValue([]),
+  getEducation: vi.fn().mockResolvedValue([]),
+  getCertifications: vi.fn().mockResolvedValue([]),
   getProjects: vi.fn().mockResolvedValue([]),
   getSkills: vi.fn().mockResolvedValue([]),
   ...overrides,

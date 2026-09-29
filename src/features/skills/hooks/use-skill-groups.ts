@@ -1,6 +1,7 @@
+import type { Locale } from '@/core/entities'
 import { container } from '@/infrastructure/di/container'
-import { useAsync } from '@/shared/hooks/use-async'
+import { useLocalizedAsync } from '@/shared/i18n/use-localized-async'
 
-const fetchSkillGroups = () => container.getSkillGroups.execute()
+const fetchSkillGroups = (locale: Locale) => container.getSkillGroups.execute(locale)
 
-export const useSkillGroups = () => useAsync(fetchSkillGroups)
+export const useSkillGroups = () => useLocalizedAsync(fetchSkillGroups)

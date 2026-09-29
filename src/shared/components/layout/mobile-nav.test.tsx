@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithProviders } from '@/test/render-with-providers'
 import userEvent from '@testing-library/user-event'
 import type { NavItem } from '@/shared/types/nav-item'
 import { MobileNav } from './mobile-nav'
@@ -11,7 +12,7 @@ const items: NavItem[] = [
 describe('MobileNav', () => {
   it('keeps the menu closed until the hamburger button is pressed', () => {
     // Arrange
-    render(<MobileNav items={items} title="Jorge Espinal" />)
+    renderWithProviders(<MobileNav items={items} title="Jorge Espinal" />)
 
     // Act
     const menu = screen.queryByRole('navigation', { name: 'Menú móvil' })
@@ -23,7 +24,7 @@ describe('MobileNav', () => {
   it('shows every section link after opening the menu', async () => {
     // Arrange
     const user = userEvent.setup()
-    render(<MobileNav items={items} title="Jorge Espinal" />)
+    renderWithProviders(<MobileNav items={items} title="Jorge Espinal" />)
 
     // Act
     await user.click(screen.getByRole('button', { name: 'Abrir menú' }))
@@ -36,7 +37,7 @@ describe('MobileNav', () => {
   it('closes the menu after choosing a section', async () => {
     // Arrange
     const user = userEvent.setup()
-    render(<MobileNav items={items} title="Jorge Espinal" />)
+    renderWithProviders(<MobileNav items={items} title="Jorge Espinal" />)
     await user.click(screen.getByRole('button', { name: 'Abrir menú' }))
 
     // Act

@@ -22,7 +22,7 @@ describe('GetFeaturedProjectsUseCase', () => {
     const useCase = new GetFeaturedProjectsUseCase(buildRepository([featured, regular]))
 
     // Act
-    const result = await useCase.execute()
+    const result = await useCase.execute('es')
 
     // Assert
     expect(result).toEqual([featured])
@@ -33,7 +33,7 @@ describe('GetFeaturedProjectsUseCase', () => {
     const useCase = new GetFeaturedProjectsUseCase(buildRepository([buildProject()]))
 
     // Act
-    const result = await useCase.execute()
+    const result = await useCase.execute('es')
 
     // Assert
     expect(result).toHaveLength(0)

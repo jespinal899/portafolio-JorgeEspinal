@@ -1,4 +1,5 @@
-import { render, screen, within } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
+import { renderWithProviders } from '@/test/render-with-providers'
 import type { Experience } from '@/core/entities'
 import { ExperienceTimeline } from './experience-timeline'
 
@@ -23,7 +24,7 @@ const previous = buildExperience({
 describe('ExperienceTimeline', () => {
   it('renders one timeline entry per experience, keeping the given order', () => {
     // Arrange
-    render(<ExperienceTimeline experiences={[current, previous]} />)
+    renderWithProviders(<ExperienceTimeline experiences={[current, previous]} />)
 
     // Act
     const entries = within(screen.getByRole('list', { name: 'Trayectoria laboral' }))
@@ -36,7 +37,7 @@ describe('ExperienceTimeline', () => {
 
   it('marks only the current position as the current step', () => {
     // Arrange
-    const { container } = render(<ExperienceTimeline experiences={[current, previous]} />)
+    const { container } = renderWithProviders(<ExperienceTimeline experiences={[current, previous]} />)
 
     // Act
     const currentEntries = container.querySelectorAll('[aria-current="step"]')
@@ -48,7 +49,7 @@ describe('ExperienceTimeline', () => {
 
   it('shows "Actualidad" for the current position and the full range for past ones', () => {
     // Arrange
-    render(<ExperienceTimeline experiences={[current, previous]} />)
+    renderWithProviders(<ExperienceTimeline experiences={[current, previous]} />)
 
     // Act
     const currentPeriod = screen.getByText(/Actualidad/)
@@ -57,5 +58,17 @@ describe('ExperienceTimeline', () => {
     // Assert
     expect(currentPeriod).toBeInTheDocument()
     expect(pastPeriod).toBeInTheDocument()
+  })
+
+  it('shows dates and labels in English when the locale is English', () => {
+    // Arrange
+    renderWithProviders(<ExperienceTimeline experiences={[current, previous]} />, { locale: 'en' })
+
+    // Act
+    const timeline = screen.getByRole('list', { name: 'Career timeline' })
+
+    // Assert
+    expect(timeline).toHaveTextContent('Jul 2025 – Present')
+    expect(timeline).toHaveTextContent('Nov 2022 – Apr 2024')
   })
 })

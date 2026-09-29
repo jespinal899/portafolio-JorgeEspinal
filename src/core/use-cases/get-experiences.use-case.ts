@@ -1,4 +1,5 @@
-import type { Experience } from '@/core/entities'
+import type { Experience, Locale } from '@/core/entities'
+import { sortByMostRecent } from '@/core/lib/sort-by-most-recent'
 import type { PortfolioRepository } from '@/core/repositories/portfolio.repository'
 
 /** Devuelve la experiencia laboral ordenada de la más reciente a la más antigua. */
@@ -9,8 +10,7 @@ export class GetExperiencesUseCase {
     this.repository = repository
   }
 
-  async execute(): Promise<readonly Experience[]> {
-    const experiences = await this.repository.getExperiences()
-    return [...experiences].sort((a, b) => b.startDate.localeCompare(a.startDate))
+  async execute(locale: Locale): Promise<readonly Experience[]> {
+    return sortByMostRecent(await this.repository.getExperiences(locale))
   }
 }

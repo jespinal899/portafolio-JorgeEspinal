@@ -1,4 +1,4 @@
-import type { Project } from '@/core/entities'
+import type { Locale, Project } from '@/core/entities'
 import type { PortfolioRepository } from '@/core/repositories/portfolio.repository'
 
 export class GetFeaturedProjectsUseCase {
@@ -8,8 +8,8 @@ export class GetFeaturedProjectsUseCase {
     this.repository = repository
   }
 
-  async execute(): Promise<readonly Project[]> {
-    const projects = await this.repository.getProjects()
+  async execute(locale: Locale): Promise<readonly Project[]> {
+    const projects = await this.repository.getProjects(locale)
     return projects.filter((project) => project.featured)
   }
 }

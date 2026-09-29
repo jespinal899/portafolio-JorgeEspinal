@@ -15,7 +15,7 @@ describe('GetSkillGroupsUseCase', () => {
     )
 
     // Act
-    const result = await useCase.execute()
+    const result = await useCase.execute('es')
 
     // Assert
     expect(result).toEqual([
@@ -29,7 +29,7 @@ describe('GetSkillGroupsUseCase', () => {
     const useCase = new GetSkillGroupsUseCase(buildRepositoryMock())
 
     // Act
-    const result = await useCase.execute()
+    const result = await useCase.execute('es')
 
     // Assert
     expect(result).toEqual([])

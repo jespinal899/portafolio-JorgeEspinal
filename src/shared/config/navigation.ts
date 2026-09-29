@@ -1,8 +1,6 @@
-import type { NavItem } from '@/shared/types/nav-item'
-import { SECTION_IDS } from './sections'
+import type { SECTION_IDS } from './sections'
 
-export const NAV_ITEMS: readonly NavItem[] = [
-  { label: 'Inicio', href: `#${SECTION_IDS.hero}` },
-  { label: 'Experiencia', href: `#${SECTION_IDS.experience}` },
-  { label: 'Habilidades', href: `#${SECTION_IDS.skills}` },
-]
+export type SectionKey = keyof typeof SECTION_IDS
+
+/** Secciones que aparecen en el menú, en orden. El texto de cada una sale del diccionario activo. */
+export const NAV_SECTIONS: readonly SectionKey[] = ['hero', 'experience', 'education', 'skills']

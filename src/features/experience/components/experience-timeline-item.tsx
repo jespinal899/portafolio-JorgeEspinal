@@ -1,6 +1,6 @@
 import type { Experience } from '@/core/entities'
+import { useDateFormat } from '@/shared/i18n/use-date-format'
 import { cn } from '@/shared/lib/utils'
-import { formatDateRange } from '@/shared/lib/format-date'
 import { ExperienceCard } from './experience-card'
 
 interface ExperienceTimelineItemProps {
@@ -13,6 +13,7 @@ interface ExperienceTimelineItemProps {
  * o encima de la tarjeta (en móvil).
  */
 export function ExperienceTimelineItem({ experience }: ExperienceTimelineItemProps) {
+  const formatDate = useDateFormat()
   const isCurrent = !experience.endDate
 
   return (
@@ -28,7 +29,7 @@ export function ExperienceTimelineItem({ experience }: ExperienceTimelineItemPro
         dateTime={experience.startDate}
         className="mb-3 block text-sm font-medium text-muted-foreground md:absolute md:top-0.5 md:right-full md:mr-10 md:mb-0 md:w-36 md:text-right"
       >
-        {formatDateRange(experience.startDate, experience.endDate)}
+        {formatDate.range(experience.startDate, experience.endDate)}
       </time>
       <ExperienceCard experience={experience} />
     </li>

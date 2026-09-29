@@ -1,4 +1,6 @@
 import type { PortfolioRepository } from '@/core/repositories/portfolio.repository'
+import { GetCertificationsUseCase } from '@/core/use-cases/get-certifications.use-case'
+import { GetEducationUseCase } from '@/core/use-cases/get-education.use-case'
 import { GetExperiencesUseCase } from '@/core/use-cases/get-experiences.use-case'
 import { GetFeaturedProjectsUseCase } from '@/core/use-cases/get-featured-projects.use-case'
 import { GetProfileUseCase } from '@/core/use-cases/get-profile.use-case'
@@ -13,6 +15,8 @@ const portfolioRepository: PortfolioRepository = new StaticPortfolioRepository()
 export const container = {
   getProfile: new GetProfileUseCase(portfolioRepository),
   getExperiences: new GetExperiencesUseCase(portfolioRepository),
+  getEducation: new GetEducationUseCase(portfolioRepository),
+  getCertifications: new GetCertificationsUseCase(portfolioRepository),
   getSkillGroups: new GetSkillGroupsUseCase(portfolioRepository),
   getFeaturedProjects: new GetFeaturedProjectsUseCase(portfolioRepository),
 } as const

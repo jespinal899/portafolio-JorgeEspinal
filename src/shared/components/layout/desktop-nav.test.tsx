@@ -1,4 +1,5 @@
-import { render, screen, within } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
+import { renderWithProviders } from '@/test/render-with-providers'
 import type { NavItem } from '@/shared/types/nav-item'
 import { DesktopNav } from './desktop-nav'
 
@@ -9,7 +10,7 @@ describe('DesktopNav', () => {
       { label: 'Inicio', href: '#inicio' },
       { label: 'Habilidades', href: '#habilidades' },
     ]
-    render(<DesktopNav items={items} />)
+    renderWithProviders(<DesktopNav items={items} />)
 
     // Act
     const links = within(screen.getByRole('navigation', { name: 'Principal' })).getAllByRole('link')

@@ -10,6 +10,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/shared/components/ui/sheet'
+import { useI18n } from '@/shared/i18n/use-i18n'
 
 interface MobileNavProps {
   items: readonly NavItem[]
@@ -17,19 +18,21 @@ interface MobileNavProps {
 }
 
 export function MobileNav({ items, title }: MobileNavProps) {
+  const { t } = useI18n()
+
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden" aria-label="Abrir menú">
+        <Button variant="ghost" size="icon" className="md:hidden" aria-label={t.nav.openMenu}>
           <MenuIcon />
         </Button>
       </SheetTrigger>
       <SheetContent side="right">
         <SheetHeader>
           <SheetTitle>{title}</SheetTitle>
-          <SheetDescription className="sr-only">Navegación entre las secciones</SheetDescription>
+          <SheetDescription className="sr-only">{t.nav.menuDescription}</SheetDescription>
         </SheetHeader>
-        <nav aria-label="Menú móvil" className="px-4">
+        <nav aria-label={t.nav.mobile} className="px-4">
           <ul className="flex flex-col gap-1">
             {items.map((item) => (
               <li key={item.href}>

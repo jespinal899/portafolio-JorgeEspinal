@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithProviders } from '@/test/render-with-providers'
 import type { Experience } from '@/core/entities'
 import { ExperienceCard } from './experience-card'
 
@@ -15,7 +16,7 @@ const buildExperience = (overrides: Partial<Experience> = {}): Experience => ({
 describe('ExperienceCard', () => {
   it('renders the role as a heading', () => {
     // Arrange
-    render(<ExperienceCard experience={buildExperience()} />)
+    renderWithProviders(<ExperienceCard experience={buildExperience()} />)
 
     // Act
     const heading = screen.getByRole('heading', { name: 'Desarrollador' })
@@ -26,7 +27,7 @@ describe('ExperienceCard', () => {
 
   it('shows the company name', () => {
     // Arrange
-    render(<ExperienceCard experience={buildExperience()} />)
+    renderWithProviders(<ExperienceCard experience={buildExperience()} />)
 
     // Act
     const company = screen.getByText('Acme')
@@ -37,7 +38,7 @@ describe('ExperienceCard', () => {
 
   it('lists every technology', () => {
     // Arrange
-    render(<ExperienceCard experience={buildExperience()} />)
+    renderWithProviders(<ExperienceCard experience={buildExperience()} />)
 
     // Act
     const technologies = screen.getByRole('list', { name: 'Tecnologías en Acme' })
