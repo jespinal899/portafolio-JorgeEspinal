@@ -85,8 +85,9 @@
 
 /*
  * Tema oscuro: fondo negro, texto blanco y acentos en azul.
- * - Tarjetas negras con borde azul y texto azul celeste (--card-foreground).
- * - Textos secundarios (empresa, fechas, ubicación) en un azul más suave (--muted-foreground).
+ * - Tarjetas negras con borde azul y texto blanco.
+ * - Textos secundarios (empresa, fechas, ubicación) en blanco atenuado (--muted-foreground)
+ *   para mantener la jerarquía visual.
  * - Azul oscuro (matiz ~262°) para etiquetas, bordes y el color primario.
  */
 .dark {
@@ -94,15 +95,15 @@
     --background: oklch(0 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0 0 0);
-    --card-foreground: oklch(0.83 0.11 230);
+    --card-foreground: oklch(0.985 0 0);
     --popover: oklch(0.19 0.06 262);
     --popover-foreground: oklch(0.985 0 0);
     --primary: oklch(0.55 0.2 262);
     --primary-foreground: oklch(0.985 0 0);
     --secondary: oklch(0.28 0.09 262);
-    --secondary-foreground: oklch(0.85 0.1 230);
+    --secondary-foreground: oklch(0.985 0 0);
     --muted: oklch(0.2 0.05 262);
-    --muted-foreground: oklch(0.72 0.09 240);
+    --muted-foreground: oklch(0.85 0 0);
     --accent: oklch(0.26 0.09 262);
     --accent-foreground: oklch(0.985 0 0);
     --destructive: oklch(0.704 0.191 22.216);
