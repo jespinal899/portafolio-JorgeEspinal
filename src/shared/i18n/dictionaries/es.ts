@@ -19,6 +19,10 @@ export const es = {
     switchTo: 'EN',
     switchLabel: 'Cambiar idioma a inglés',
   },
+  theme: {
+    toDark: 'Activar tema oscuro',
+    toLight: 'Activar tema claro',
+  },
   nav: {
     main: 'Principal',
     mobile: 'Menú móvil',

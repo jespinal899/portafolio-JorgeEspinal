@@ -6,6 +6,7 @@ import type { NavItem } from '@/shared/types/nav-item'
 import { DesktopNav } from './desktop-nav'
 import { LanguageSwitcher } from './language-switcher'
 import { MobileNav } from './mobile-nav'
+import { ThemeToggle } from './theme-toggle'
 
 export function Header() {
   const { t } = useI18n()
@@ -23,6 +24,7 @@ export function Header() {
         <div className="flex items-center gap-1">
           <DesktopNav items={navItems} />
           <LanguageSwitcher />
+          <ThemeToggle />
           <MobileNav items={navItems} title={siteConfig.title} />
         </div>
       </div>

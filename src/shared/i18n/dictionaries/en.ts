@@ -13,6 +13,10 @@ export const en: Dictionary = {
     switchTo: 'ES',
     switchLabel: 'Switch language to Spanish',
   },
+  theme: {
+    toDark: 'Switch to dark theme',
+    toLight: 'Switch to light theme',
+  },
   nav: {
     main: 'Main',
     mobile: 'Mobile menu',

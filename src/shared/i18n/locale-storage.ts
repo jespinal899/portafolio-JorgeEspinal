@@ -1,20 +1,8 @@
 import type { Locale } from '@/core/entities'
+import { readStorage, writeStorage } from '@/shared/lib/safe-storage'
 
 const STORAGE_KEY = 'portfolio.locale'
 
-/** El almacenamiento puede no estar disponible (modo privado, bloqueado): nunca debe romper la app. */
-export function readStoredLocale(): string | null {
-  try {
-    return window.localStorage.getItem(STORAGE_KEY)
-  } catch {
-    return null
-  }
-}
+export const readStoredLocale = (): string | null => readStorage(STORAGE_KEY)
 
-export function storeLocale(locale: Locale): void {
-  try {
-    window.localStorage.setItem(STORAGE_KEY, locale)
-  } catch {
-    // Sin persistencia: el idioma se mantiene solo durante la visita.
-  }
-}
+export const storeLocale = (locale: Locale): void => writeStorage(STORAGE_KEY, locale)

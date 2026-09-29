@@ -9,6 +9,17 @@
       content="Portafolio de Jorge Espinal: Administrador de Sistemas y estudiante de Ingeniería en Informática."
     />
     <title>Jorge Espinal · Portafolio</title>
+    <script>
+      // Aplica el tema antes de pintar la página para evitar un destello de color.
+      // Debe coincidir con `detectTheme` y la clave de `src/shared/theme/theme.ts`.
+      try {
+        var stored = localStorage.getItem('portfolio.theme')
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (stored === 'dark' || (stored !== 'light' && prefersDark)) {
+          document.documentElement.classList.add('dark')
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
