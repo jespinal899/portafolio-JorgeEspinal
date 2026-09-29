@@ -10,6 +10,8 @@ export function LanguageSwitcher() {
     <Button
       variant="ghost"
       size="sm"
+      // Área táctil de 40px en móvil; compacto en escritorio, donde se usa el puntero.
+      className="h-10 px-3 md:h-8"
       aria-label={t.language.switchLabel}
       onClick={() => setLocale(nextLocale)}
     >

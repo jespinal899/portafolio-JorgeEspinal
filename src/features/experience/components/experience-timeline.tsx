@@ -11,7 +11,7 @@ export function ExperienceTimeline({ experiences }: ExperienceTimelineProps) {
 
   return (
     // `border-l` es la línea vertical; en escritorio se deja espacio a la izquierda para las fechas.
-    <ol aria-label={t.experience.timelineLabel} className="ml-2 flex flex-col gap-10 border-l md:ml-48">
+    <ol aria-label={t.experience.timelineLabel} className="ml-2 flex flex-col gap-8 border-l sm:gap-10 md:ml-52">
       {experiences.map((experience) => (
         <ExperienceTimelineItem key={experience.id} experience={experience} />
       ))}

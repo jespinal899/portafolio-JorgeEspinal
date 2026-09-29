@@ -141,10 +141,20 @@
     @apply border-border outline-ring/50;
     }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
     }
   html {
     @apply font-sans;
+    /* Evita que iOS agrande el texto por su cuenta al girar el teléfono. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    }
+  /* Títulos con líneas equilibradas y párrafos sin palabras huérfanas al final. */
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+    }
+  p {
+    text-wrap: pretty;
     }
   @media (prefers-reduced-motion: no-preference) {
     html {

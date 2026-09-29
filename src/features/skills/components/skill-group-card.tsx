@@ -14,7 +14,7 @@ export function SkillGroupCard({ group }: SkillGroupCardProps) {
   return (
     <Card className="h-full">
       <CardHeader>
-        <CardTitle>
+        <CardTitle className="text-base sm:text-lg">
           <h3>{label}</h3>
         </CardTitle>
       </CardHeader>

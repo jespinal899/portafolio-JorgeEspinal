@@ -17,11 +17,14 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur supports-backdrop-filter:bg-background/60">
-      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-2 px-4">
-        <a href={`#${SECTION_IDS.hero}`} className="font-heading text-lg font-semibold tracking-tight">
+      <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-2 px-4 sm:px-6">
+        <a
+          href={`#${SECTION_IDS.hero}`}
+          className="min-w-0 truncate font-heading text-base font-semibold tracking-tight sm:text-lg"
+        >
           {siteConfig.title}
         </a>
-        <div className="flex items-center gap-1">
+        <div className="flex shrink-0 items-center gap-1">
           <DesktopNav items={navItems} />
           <LanguageSwitcher />
           <ThemeToggle />

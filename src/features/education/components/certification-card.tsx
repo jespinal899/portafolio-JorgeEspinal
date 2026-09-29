@@ -18,13 +18,15 @@ export function CertificationCard({ certification }: CertificationCardProps) {
   ].filter(Boolean)
 
   return (
-    <Card size="sm" className="h-full">
+    <Card className="h-full">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <AwardIcon aria-hidden="true" className="size-4 text-primary" />
+        <CardTitle className="flex items-center gap-2 text-[0.9375rem] sm:text-base">
+          <AwardIcon aria-hidden="true" className="size-4 shrink-0 text-primary" />
           <h4>{certification.name}</h4>
         </CardTitle>
-        {details.length > 0 && <CardDescription>{details.join(' · ')}</CardDescription>}
+        {details.length > 0 && (
+          <CardDescription className="text-sm">{details.join(' · ')}</CardDescription>
+        )}
         {certification.credentialUrl && (
           <Button variant="link" size="sm" className="h-auto justify-start px-0" asChild>
             <a href={certification.credentialUrl} target="_blank" rel="noreferrer">

@@ -17,7 +17,7 @@ export function ExperienceTimelineItem({ experience }: ExperienceTimelineItemPro
   const isCurrent = !experience.endDate
 
   return (
-    <li className="relative pl-8" aria-current={isCurrent ? 'step' : undefined}>
+    <li className="relative pl-6 sm:pl-8" aria-current={isCurrent ? 'step' : undefined}>
       <span
         aria-hidden="true"
         className={cn(
@@ -27,7 +27,7 @@ export function ExperienceTimelineItem({ experience }: ExperienceTimelineItemPro
       />
       <time
         dateTime={experience.startDate}
-        className="mb-3 block text-sm font-medium text-muted-foreground md:absolute md:top-0.5 md:right-full md:mr-10 md:mb-0 md:w-36 md:text-right"
+        className="mb-3 block text-sm font-medium text-muted-foreground md:absolute md:top-0.5 md:right-full md:mr-10 md:mb-0 md:w-40 md:text-right md:text-[0.9375rem]"
       >
         {formatDate.range(experience.startDate, experience.endDate)}
       </time>

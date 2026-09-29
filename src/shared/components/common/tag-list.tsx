@@ -10,7 +10,9 @@ export function TagList({ items, label }: TagListProps) {
     <ul aria-label={label} className="flex flex-wrap gap-2">
       {items.map((item) => (
         <li key={item}>
-          <Badge variant="secondary">{item}</Badge>
+          <Badge variant="secondary" className="h-6 px-2.5 text-[0.8125rem]">
+            {item}
+          </Badge>
         </li>
       ))}
     </ul>

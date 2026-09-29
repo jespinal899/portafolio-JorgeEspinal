@@ -11,15 +11,15 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
   const { t } = useI18n()
 
   return (
-    <Card>
+    <Card className="sm:[--card-spacing:--spacing(6)]">
       <CardHeader>
-        <CardTitle>
+        <CardTitle className="text-base sm:text-lg">
           <h3>{experience.role}</h3>
         </CardTitle>
-        <CardDescription>{experience.company}</CardDescription>
+        <CardDescription className="text-sm sm:text-base">{experience.company}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
-        <p>{experience.description}</p>
+        <p className="text-[0.9375rem] leading-relaxed sm:text-base">{experience.description}</p>
         <TagList
           items={experience.technologies}
           label={t.experience.technologiesAt(experience.company)}

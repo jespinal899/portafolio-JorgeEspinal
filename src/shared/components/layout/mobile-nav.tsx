@@ -23,7 +23,7 @@ export function MobileNav({ items, title }: MobileNavProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="md:hidden" aria-label={t.nav.openMenu}>
+        <Button variant="ghost" size="icon" className="size-10 md:hidden" aria-label={t.nav.openMenu}>
           <MenuIcon />
         </Button>
       </SheetTrigger>
@@ -38,7 +38,7 @@ export function MobileNav({ items, title }: MobileNavProps) {
               <li key={item.href}>
                 {/* SheetClose cierra el menú al elegir una sección. */}
                 <SheetClose asChild>
-                  <Button variant="ghost" className="w-full justify-start" asChild>
+                  <Button variant="ghost" className="h-11 w-full justify-start text-base" asChild>
                     <a href={item.href}>{item.label}</a>
                   </Button>
                 </SheetClose>

@@ -12,6 +12,7 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
+      className="size-10 md:size-8"
       aria-label={isDark ? t.theme.toLight : t.theme.toDark}
       onClick={toggleTheme}
     >
