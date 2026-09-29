@@ -8,7 +8,7 @@ export const es = {
   meta: {
     title: 'Jorge Espinal · Portafolio',
     description:
-      'Portafolio de Jorge Espinal: Administrador de Sistemas y estudiante de Ingeniería en Informática.',
+      'Jorge Espinal: Administrador de Sistemas, Soporte TI y Desarrollo de Software en Honduras.',
   },
   common: {
     loadError: 'No se pudo cargar esta sección.',
@@ -33,7 +33,23 @@ export const es = {
       experience: 'Experiencia',
       education: 'Educación',
       skills: 'Habilidades',
+      contact: 'Contacto',
     },
+  },
+  hero: {
+    rolesLabel: 'Roles profesionales',
+    contactCta: 'Contactarme',
+  },
+  contact: {
+    title: 'Contacto',
+    description:
+      '¿Tienes una oportunidad laboral o un proyecto en mente? Conectemos, respondo lo antes posible.',
+    linksLabel: 'Enlaces de contacto',
+    opensInNewTab: '(se abre en una pestaña nueva)',
+  },
+  footer: {
+    /** El año se calcula al renderizar para que el aviso nunca quede desactualizado. */
+    copyright: (year: number, name: string) => `© ${year} ${name}. Todos los derechos reservados.`,
   },
   experience: {
     title: 'Experiencia',

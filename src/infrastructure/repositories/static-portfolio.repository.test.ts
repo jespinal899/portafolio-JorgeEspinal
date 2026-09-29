@@ -1,7 +1,7 @@
 import { StaticPortfolioRepository } from './static-portfolio.repository'
 
 describe('StaticPortfolioRepository', () => {
-  it('returns the profile headline in English when requested', async () => {
+  it('returns the profile roles in English when requested', async () => {
     // Arrange
     const repository = new StaticPortfolioRepository()
 
@@ -9,10 +9,10 @@ describe('StaticPortfolioRepository', () => {
     const profile = await repository.getProfile('en')
 
     // Assert
-    expect(profile.headline).toMatch(/Systems Administrator/)
+    expect(profile.roles[0]).toBe('Systems Administrator')
   })
 
-  it('returns the profile headline in Spanish when requested', async () => {
+  it('returns the profile roles in Spanish when requested', async () => {
     // Arrange
     const repository = new StaticPortfolioRepository()
 
@@ -20,7 +20,7 @@ describe('StaticPortfolioRepository', () => {
     const profile = await repository.getProfile('es')
 
     // Assert
-    expect(profile.headline).toMatch(/Administrador de Sistemas/)
+    expect(profile.roles[0]).toBe('Administrador de Sistemas')
   })
 
   it('never leaks untranslated `{ es, en }` objects into the entities', async () => {

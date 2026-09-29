@@ -7,4 +7,5 @@ export const SECTION_IDS = {
   experience: 'experiencia',
   education: 'educacion',
   skills: 'habilidades',
+  contact: 'contacto',
 } as const

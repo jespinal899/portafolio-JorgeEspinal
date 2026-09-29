@@ -1,3 +1,4 @@
+import { ContactSection } from '@/features/contact'
 import { EducationSection } from '@/features/education'
 import { ExperienceSection } from '@/features/experience'
 import { HeroSection } from '@/features/hero'
@@ -10,7 +11,8 @@ export function HomePage() {
       <ExperienceSection />
       <EducationSection />
       <SkillsSection />
-      {/* TODO: <ProjectsSection />, <ContactSection /> */}
+      {/* TODO: <ProjectsSection /> */}
+      <ContactSection />
     </>
   )
 }

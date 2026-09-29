@@ -3,7 +3,8 @@ import type { Dictionary } from './es'
 export const en: Dictionary = {
   meta: {
     title: 'Jorge Espinal · Portfolio',
-    description: 'Portfolio of Jorge Espinal: Systems Administrator and Computer Engineering student.',
+    description:
+      'Jorge Espinal: Systems Administrator, IT Support and Software Development in Honduras.',
   },
   common: {
     loadError: 'This section could not be loaded.',
@@ -27,7 +28,22 @@ export const en: Dictionary = {
       experience: 'Experience',
       education: 'Education',
       skills: 'Skills',
+      contact: 'Contact',
     },
+  },
+  hero: {
+    rolesLabel: 'Professional roles',
+    contactCta: 'Get in touch',
+  },
+  contact: {
+    title: 'Contact',
+    description:
+      'Have a job opportunity or a project in mind? Let’s connect, I’ll get back to you as soon as possible.',
+    linksLabel: 'Contact links',
+    opensInNewTab: '(opens in a new tab)',
+  },
+  footer: {
+    copyright: (year, name) => `© ${year} ${name}. All rights reserved.`,
   },
   experience: {
     title: 'Experience',

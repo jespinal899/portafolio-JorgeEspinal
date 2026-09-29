@@ -1,10 +1,12 @@
-import { render, screen } from '@testing-library/react'
+import { screen, within } from '@testing-library/react'
 import type { Profile } from '@/core/entities'
+import { renderWithProviders } from '@/test/render-with-providers'
 import { HeroContent } from './hero-content'
 
 const profile: Profile = {
   fullName: 'Ada Lovelace',
-  headline: 'Software Developer',
+  roles: ['Administradora de Sistemas', 'Soporte TI', 'Desarrollo de Software'],
+  tagline: 'Estudiante de Ingeniería',
   summary: 'Resumen',
   location: 'Londres',
   socialLinks: [{ platform: 'github', label: 'GitHub', url: 'https://github.com/ada' }],
@@ -13,7 +15,7 @@ const profile: Profile = {
 describe('HeroContent', () => {
   it('renders the full name as the main heading', () => {
     // Arrange
-    render(<HeroContent profile={profile} />)
+    renderWithProviders(<HeroContent profile={profile} />)
 
     // Act
     const heading = screen.getByRole('heading', { level: 1 })
@@ -22,14 +24,49 @@ describe('HeroContent', () => {
     expect(heading).toHaveTextContent('Ada Lovelace')
   })
 
-  it('renders each social link pointing to its url', () => {
+  it('lists every professional role, in order', () => {
     // Arrange
-    render(<HeroContent profile={profile} />)
+    renderWithProviders(<HeroContent profile={profile} />)
 
     // Act
-    const link = screen.getByRole('link', { name: 'GitHub' })
+    const roles = within(screen.getByRole('list', { name: 'Roles profesionales' }))
+      .getAllByRole('listitem')
+      .map((item) => item.textContent)
 
     // Assert
-    expect(link).toHaveAttribute('href', 'https://github.com/ada')
+    expect(roles).toEqual(['Administradora de Sistemas', 'Soporte TI', 'Desarrollo de Software'])
+  })
+
+  it('shows the studies as secondary information', () => {
+    // Arrange
+    renderWithProviders(<HeroContent profile={profile} />)
+
+    // Act
+    const tagline = screen.getByText('Estudiante de Ingeniería')
+
+    // Assert
+    expect(tagline).toBeInTheDocument()
+  })
+
+  it('offers a call to action that leads to the contact section', () => {
+    // Arrange
+    renderWithProviders(<HeroContent profile={profile} />)
+
+    // Act
+    const cta = screen.getByRole('link', { name: 'Contactarme' })
+
+    // Assert
+    expect(cta).toHaveAttribute('href', '#contacto')
+  })
+
+  it('leaves the social links to the contact section', () => {
+    // Arrange
+    renderWithProviders(<HeroContent profile={profile} />)
+
+    // Act
+    const githubLink = screen.queryByRole('link', { name: /GitHub/ })
+
+    // Assert
+    expect(githubLink).not.toBeInTheDocument()
   })
 })

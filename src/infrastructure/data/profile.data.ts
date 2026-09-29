@@ -3,9 +3,14 @@ import type { Translatable } from '@/infrastructure/i18n/localize'
 
 export const profileData: Translatable<Profile> = {
   fullName: 'Jorge Espinal',
-  headline: {
-    es: 'Administrador de Sistemas · Estudiante de Ingeniería en Informática',
-    en: 'Systems Administrator · Computer Engineering Student',
+  roles: [
+    { es: 'Administrador de Sistemas', en: 'Systems Administrator' },
+    { es: 'Soporte TI', en: 'IT Support' },
+    { es: 'Desarrollo de Software', en: 'Software Development' },
+  ],
+  tagline: {
+    es: 'Estudiante de Ingeniería en Informática',
+    en: 'Computer Engineering Student',
   },
   summary: {
     es:
